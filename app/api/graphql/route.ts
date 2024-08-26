@@ -16,11 +16,10 @@ const schema = buildSchema(`
 
 // Sample data
 const users = [
-  { id: 1, name: 'John Doe', email: 'john@example.com' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
-  { id: 3, name: 'Alice May', email:'alice@example.com'},
-   { id: 4, name: 'Bob Smith', email: 'bob@example.com'},
-];
+    { id: 1, name: 'Alice Blue', email: 'alice@example.com' },
+    { id: 2, name: 'Bob Green', email: 'bob@example.com' },
+  ];
+  
 
 // Define resolvers
 const root = {

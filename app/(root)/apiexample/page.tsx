@@ -1,8 +1,12 @@
 import React from 'react';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const baseUrl = publicRuntimeConfig.apiUrl;
 
 // Fetching data from the REST API
 async function fetchRestUsers() {
-  const res = await fetch('http://localhost:3000/api/users');
+  const res = await fetch(`${baseUrl}/api/users`, { cache: 'no-store' });
   if (!res.ok) {
     throw new Error('Failed to fetch users from REST API');
   }
@@ -21,12 +25,13 @@ async function fetchGraphQLUsers() {
     }
   `;
 
-  const res = await fetch('http://localhost:3000/api/graphql', {
+  const res = await fetch(`${baseUrl}/api/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ query }),
+    cache: 'no-store',
   });
 
   if (!res.ok) {
@@ -38,6 +43,7 @@ async function fetchGraphQLUsers() {
 }
 
 export default async function ApiExamplePage() {
+  // Fetch users from both APIs directly in the server component
   const restUsers = await fetchRestUsers();
   const graphQLUsers = await fetchGraphQLUsers();
 
@@ -56,10 +62,11 @@ export default async function ApiExamplePage() {
       <ul>
         {graphQLUsers.map((user: { id: number; name: string; email: string }) => (
           <li key={user.id}>
-          {user.id} - {user.name} - {user.email} 
+            {user.name} - {user.email}
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
