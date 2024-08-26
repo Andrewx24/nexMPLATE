@@ -43,7 +43,6 @@ async function fetchGraphQLUsers() {
 }
 
 export default async function ApiExamplePage() {
-  // Fetch users from both APIs directly in the server component
   const restUsers = await fetchRestUsers();
   const graphQLUsers = await fetchGraphQLUsers();
 
