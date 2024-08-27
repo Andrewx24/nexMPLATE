@@ -1,6 +1,7 @@
 import React from 'react';
 import getConfig from 'next/config';
 import Link from 'next/link';
+
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = publicRuntimeConfig.apiUrl;
 
@@ -49,14 +50,18 @@ export default async function ApiExamplePage() {
   return (
     <div>
       <h1>REST API Users</h1>
- 
       <ul>
-        
         {restUsers.map((user: { id: number; name: string; email: string }) => (
-          <Link href={`/apiexample/${user.id}`} key={user.id}>
-          <li key={user.id}>
-            {user.name} - {user.email}
-          </li>
+          <Link
+            href={{
+              pathname: `/apiexample/${user.id}`,
+              query: { name: user.name, email: user.email, id: user.id },
+            }}
+            key={user.id}
+          >
+            <li>
+              {user.name} - {user.email}
+            </li>
           </Link>
         ))}
       </ul>
@@ -64,9 +69,17 @@ export default async function ApiExamplePage() {
       <h1>GraphQL API Users</h1>
       <ul>
         {graphQLUsers.map((user: { id: number; name: string; email: string }) => (
-          <li key={user.id}>
-            {user.name} - {user.email}
-          </li>
+          <Link
+            href={{
+              pathname: `/apiexample/${user.id}`,
+              query: { name: user.name, email: user.email, id: user.id },
+            }}
+            key={user.id}
+          >
+            <li>
+              {user.name} - {user.email}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
