@@ -1,4 +1,4 @@
-export default function Page({ searchParams }: { searchParams: { id: string; name: string; email: string } }) {
+export default function Page({ searchParams }: { searchParams: { id: number; name: string; email: string } }) {
   const { id, name, email } = searchParams;
 
   return (
