@@ -1,6 +1,6 @@
 import React from 'react';
 import getConfig from 'next/config';
-
+import Link from 'next/link';
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = publicRuntimeConfig.apiUrl;
 
@@ -49,11 +49,15 @@ export default async function ApiExamplePage() {
   return (
     <div>
       <h1>REST API Users</h1>
+ 
       <ul>
+        
         {restUsers.map((user: { id: number; name: string; email: string }) => (
+          <Link href={`/apiexample/${user.id}`} key={user.id}>
           <li key={user.id}>
             {user.name} - {user.email}
           </li>
+          </Link>
         ))}
       </ul>
 
@@ -68,4 +72,3 @@ export default async function ApiExamplePage() {
     </div>
   );
 }
-
