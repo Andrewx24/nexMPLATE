@@ -5,6 +5,7 @@ export default function Page({ searchParams }: { searchParams: { id: number; nam
     <div>
       <h2>Hello there, {name}!</h2>
       <p>Your user ID is: {id}</p>
+      consol.log({id})
       <p>Your email address is: {email}</p>
     </div>
   );
