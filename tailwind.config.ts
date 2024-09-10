@@ -11,11 +11,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "primary": "#FF6363",
+        primary: "#d6f7f7",
       },
       backgroundImage: {
-        // If you want to use an image, specify a valid URL or gradient here
-        // 'custom-pattern': "url('/path/to/your/image.png')",
+        // You can define custom patterns here
       },
     },
   },
