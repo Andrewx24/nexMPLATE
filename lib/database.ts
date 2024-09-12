@@ -1,13 +1,12 @@
 import mongoose from 'mongoose';
 
-const uri: string | undefined = process.env.MONGODB_URI;
+const uri: string = process.env.MONGODB_URI as string;  // Assert the type to string
 
 if (!uri) {
-  throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
-  );
+  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
 }
 
+// Declare a cached connection to use across hot reloads in development
 let cached = global.mongoose;
 
 if (!cached) {
@@ -26,15 +25,8 @@ export async function connectToDatabase() {
         strict: true,
         deprecationErrors: true,
       },
-    }).then((mongoose) => {
-      console.log("Successfully connected to MongoDB");
-      return mongoose;
-    }).catch((error) => {
-      console.error("Failed to connect to MongoDB", error);
-    });
+    }).then((mongoose) => mongoose);
   }
-
   cached.conn = await cached.promise;
   return cached.conn;
 }
-
