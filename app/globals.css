@@ -70,4 +70,10 @@
   .btn {
     @apply px-4 py-2 rounded-md shadow-sm text-orange-700;
   }
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-foreground text-primary-foreground;
+  }
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-foreground text-secondary-foreground;
+  }
 }
