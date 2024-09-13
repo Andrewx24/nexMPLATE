@@ -65,3 +65,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md shadow-sm text-orange-700;
+  }
+}

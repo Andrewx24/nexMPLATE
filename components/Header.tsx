@@ -4,18 +4,18 @@ import Image from 'next/image'
 
 const Header = () => {
   return (
-   <header>
-        <nav>
+   <header >
+        <nav className=' flex '>
             <Image src="/logo.png" alt="logo" width={100} height={100} />
             <ul>
             <li>
-                <Link href="/">
-                <a>Home</a>
+                <Link  className='btn'  href="/">
+                Home
                 </Link>
             </li>
             <li>
                 <Link href="/apiexample">
-                <a>API Example</a>
+                API Example
                 </Link>
             </li>
            
