@@ -24,7 +24,12 @@ const Header = () => {
           <li>
             <Link href="/form" className="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">
               Database
-            </Link>
+           </Link>
+          </li>
+          <li> 
+           <Link href="/serveractions" className='bg-gray-200 text-gray-800 '> 
+           Server Actions 
+           </Link>
           </li>
         </ul>
       </nav>
