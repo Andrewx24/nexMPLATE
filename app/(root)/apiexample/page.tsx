@@ -48,8 +48,8 @@ export default async function ApiExamplePage() {
   const graphQLUsers = await fetchGraphQLUsers();
 
   return (
-    <div>
-      <h1>REST API Users</h1>
+    <div className='w-screen'>
+     <h1>REST API Users</h1>
       <ul>
         {restUsers.map((user: { id: number; name: string; email: string }) => (
           <Link
