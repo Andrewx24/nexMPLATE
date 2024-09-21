@@ -1,11 +1,14 @@
+
 import FormComponent from '@/components/FormComponet';
 import { revalidatePath } from 'next/cache';
+
+// Extend the globalThis type to include the list property
 declare global {
-    var list: string[] | undefined;
-  }
+  var list: string[] | undefined;
+}
 
 // Define the server action inside the file but don't export it as part of the page export
- const HandleSubmit = async (formData: FormData) => {
+const HandleSubmit = async (formData: FormData) => {
   "use server";
 
   const name = formData.get('name') as string;
@@ -18,7 +21,7 @@ declare global {
   }
 
   // Revalidate the current page to reflect the new list
-  revalidatePath('/serveractions');
+  revalidatePath('/serveractions'); // Corrected path
 };
 
 export default function Home() {

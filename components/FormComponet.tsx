@@ -1,9 +1,9 @@
-// app/FormComponent.tsx
 "use client";
+
 
 export default function FormComponent() {
   return (
-    <form action="/submit" method="POST" className="space-y-4">
+    <form action="submit" method="POST" className="space-y-4">
       <label htmlFor="name" className="block text-sm font-medium text-gray-700">
         Name:
       </label>
